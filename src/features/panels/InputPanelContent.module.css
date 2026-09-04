@@ -1,0 +1,87 @@
+.componentSingleInput,
+.componentReferenceInputs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-12);
+
+  & > .previewButton {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    width: 100%;
+  }
+
+  & > .referenceList {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    margin: 0;
+  }
+
+  & > .uploadLayout {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    width: 100%;
+  }
+
+}
+
+/* A frame around the sprite that reads as "this is what the editor has", with
+   the selected state carrying the interaction colour the panels use elsewhere. */
+.previewButton {
+  display: block;
+  padding: var(--size-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-8);
+  background-color: transparent;
+  cursor: pointer;
+  transition: border-color var(--duration-150) ease;
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--color) 25%, transparent);
+  }
+
+  & > .previewLayout {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    width: 100%;
+  }
+}
+
+.isSelected {
+  border-color: var(--dynamic-color);
+}
+
+.meta {
+  color: color-mix(in srgb, var(--color) 60%, transparent);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-8);
+}
+
+.referenceList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--size-48), 1fr));
+  gap: var(--size-8);
+  padding: 0;
+  list-style: none;
+}
+
+.referenceItem {
+  position: relative;
+
+  & > .referenceThumbLayout {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    width: 100%;
+  }
+
+  & > .referenceRemoveLayout {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    position: absolute;
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    top: var(--size-4);
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    right: var(--size-4);
+  }
+}
+
+.warning {
+  color: var(--color-yellow-400);
+}

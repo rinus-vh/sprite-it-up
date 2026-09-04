@@ -1,0 +1,109 @@
+.component {
+  display: grid;
+  /* Top-aligned, not centred: a viewport taller than the sprite must leave the
+     empty room below it, so the canvas stays where you left it. Centring also
+     makes the overflow above an over-zoomed board unreachable by scrolling. */
+  place-content: start center;
+  justify-items: center;
+  overflow: auto;
+  padding: var(--size-8);
+  border: 1px solid color-mix(in srgb, var(--color) 12%, transparent);
+  border-radius: var(--radius-8);
+
+  /* Checkerboard so transparent sprite pixels read as transparent rather than
+     as the panel's own background colour. */
+  background-color: var(--surface-color);
+  background-image:
+    conic-gradient(
+      from 90deg,
+      color-mix(in srgb, var(--color) 7%, transparent) 0 25%,
+      transparent 0 50%,
+      color-mix(in srgb, var(--color) 7%, transparent) 0 75%,
+      transparent 0
+    );
+  background-size: var(--size-16) var(--size-16);
+
+  & > .board {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    width: calc(var(--pixel-size) * var(--pixel-count));
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    height: calc(var(--pixel-size) * var(--pixel-count));
+  }
+}
+
+.board {
+  position: relative;
+  display: grid;
+  cursor: crosshair;
+
+  /* A drawing surface is not text to select or an image to drag away. The
+     pointer handler cancels the gesture too, but only once it has started —
+     these stop the browser from ever treating a press here as either. */
+  user-select: none;
+  -webkit-user-drag: none;
+  touch-action: none;
+
+  & > .canvas {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    grid-area: 1 / 1;
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    width: 100%;
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    height: 100%;
+  }
+
+  & > .grid {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    grid-area: 1 / 1;
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    width: 100%;
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    height: 100%;
+  }
+
+  & > .cursor {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    grid-area: 1 / 1;
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    width: 100%;
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    height: 100%;
+  }
+}
+
+.canvas {
+  /* The whole point: scale up without ever softening a pixel edge. */
+  image-rendering: pixelated;
+  display: block;
+}
+
+.grid {
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color) 16%, transparent) 0 1px,
+      transparent 1px var(--pixel-size)
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color) 16%, transparent) 0 1px,
+      transparent 1px var(--pixel-size)
+    );
+}
+
+/* Above the sprite and the grid, and never in the way of a pointer event. */
+.cursor {
+  display: block;
+  pointer-events: none;
+}
+
+/* Tool feedback on the surface itself: the cursor is the only affordance that
+   says what a click will do here. */
+.isErasing {
+  cursor: cell;
+}
+
+.isFilling {
+  cursor: copy;
+}

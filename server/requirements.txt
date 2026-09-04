@@ -1,0 +1,20 @@
+# Sprite It Up — local generation server
+#
+# Install with:  python3 -m pip install -r server/requirements.txt
+# Start with:    python3 server/server.py
+
+# Core server
+flask>=3.0
+flask-cors>=4.0
+Pillow>=10.0
+numpy>=1.24
+
+# Stage: rotate  (Stable Diffusion img2img)
+# torch>=2.2 ships Apple-Silicon (MPS) support; no CUDA needed on a Mac.
+torch>=2.2
+diffusers>=0.27
+transformers>=4.40
+accelerate>=0.28
+
+# Optional — only needed if you point SPRITE_LORA at pixel-art LoRA weights.
+peft>=0.10

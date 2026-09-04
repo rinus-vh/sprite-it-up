@@ -1,0 +1,48 @@
+.component {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-8);
+  overflow: hidden;
+
+  & > .countLayout {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    flex: 0 0 auto;
+  }
+
+  & > .list {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    min-height: 0;
+  }
+}
+
+/* The slider sits a little clear of the list it governs, so the count above
+   reads as a control rather than as the first row of the list. */
+.componentCount {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4);
+  padding-bottom: var(--size-8);
+}
+
+.title {
+  color: color-mix(in srgb, var(--color) 60%, transparent);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4);
+  overflow-y: auto;
+
+  /* Room for the scrollbar the list grows its own, so a long palette's pixel
+     counts are not printed underneath it. */
+  padding: 0 var(--size-8) 0 0;
+  list-style: none;
+
+  & > .item {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    flex: 0 0 auto;
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    margin: 0;
+  }
+}

@@ -1,0 +1,16 @@
+.component {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-8);
+}
+
+.summary {
+  color: color-mix(in srgb, var(--color) 60%, transparent);
+}
+
+.secondary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4);
+  align-items: flex-start;
+}

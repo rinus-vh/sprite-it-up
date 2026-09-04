@@ -1,0 +1,64 @@
+.component {
+  /* The hover state belongs to the whole control, so the label appears whether
+     the pointer is on the button or has slipped onto the label itself. */
+  --opacity-label: 0;
+
+  position: relative;
+  z-index: 0;
+  display: flex;
+
+  &:hover,
+  &:focus-within {
+    --opacity-label: 1;
+  }
+
+  & > .button {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    width: var(--size-28);
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    height: var(--size-28);
+  }
+
+  /* Below the bar rather than beside it: a bar has no room to its right. */
+  & > .labelLayout {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    position: absolute;
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    top: calc(100% + var(--size-4));
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    right: 0;
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    z-index: 2;
+  }
+}
+
+/* The same outline the shared ActionIconButton wears, so it sits in a bar
+   beside them without announcing that it is a different component. */
+.button {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--color) 20%, transparent);
+  border-radius: var(--radius-8);
+  background-color: transparent;
+  color: color-mix(in srgb, var(--color) 60%, transparent);
+  cursor: pointer;
+  transition: border-color var(--duration-150) ease, color var(--duration-150) ease;
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--color) 40%, transparent);
+    color: var(--color);
+  }
+
+  & > .iconLayout {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    width: var(--size-16);
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    height: var(--size-16);
+  }
+}
+
+.isActive {
+  border-color: var(--dynamic-color);
+  color: var(--dynamic-color);
+}

@@ -2,7 +2,7 @@
   /* stylelint-disable-next-line custom/layout-related-properties */
   min-height: 100dvh;
   display: grid;
-  grid-template-columns: repeat(auto-fill,  var(--size-64));
+  grid-template-columns: repeat(auto-fill, var(--size-64));
   gap: var(--size-12);
   padding: var(--size-12);
   align-content: start;
@@ -18,6 +18,6 @@
   }
 
   & > .minimizedMenuLayout {
-    grid-column: 1 / -1;
+    align-self: stretch;
   }
 }

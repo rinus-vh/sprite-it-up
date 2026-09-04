@@ -1,0 +1,71 @@
+.componentRotateSettings,
+.componentAnimateSettings,
+.componentAssetSetSettings {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-12);
+
+  & > .dialLayout {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    width: 100%;
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    max-width: var(--size-200);
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    margin: 0 auto;
+  }
+}
+
+.componentServerStatus {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--size-8);
+  color: color-mix(in srgb, var(--color) 60%, transparent);
+}
+
+.engine {
+  color: color-mix(in srgb, var(--color) 55%, transparent);
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: var(--size-8);
+}
+
+.progressLabel {
+  overflow: hidden;
+  color: color-mix(in srgb, var(--color) 70%, transparent);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--size-8);
+  padding: var(--size-12);
+  border-radius: var(--radius-8);
+  background-color: color-mix(in srgb, var(--color-red-500) 15%, transparent);
+  color: var(--color-red-400);
+}
+
+.componentAction {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4);
+}
+
+.blockedReason {
+  color: color-mix(in srgb, var(--color) 55%, transparent);
+}
+
+.componentModelDownloadNotice {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-8);
+  padding: var(--size-12);
+  border-radius: var(--radius-8);
+  background-color: color-mix(in srgb, var(--color-yellow-500) 14%, transparent);
+  color: var(--color);
+}

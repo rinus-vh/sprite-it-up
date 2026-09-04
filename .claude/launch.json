@@ -2,7 +2,7 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "vite-dev",
+      "name": "sprite-it-up",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["start"],
       "port": 5176,

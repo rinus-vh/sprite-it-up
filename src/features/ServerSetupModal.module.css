@@ -1,0 +1,39 @@
+.componentSetupPage,
+.componentCleanupPage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-16);
+
+  & > .steps {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    margin: 0;
+  }
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-12);
+  padding-left: var(--size-20);
+  color: var(--color);
+  list-style: decimal;
+  font-size: var(--font-size-14);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4);
+}
+
+.stepLabel {
+  color: color-mix(in srgb, var(--color) 80%, transparent);
+  line-height: var(--line-height-150);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--size-12);
+}

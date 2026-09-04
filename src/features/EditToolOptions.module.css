@@ -1,0 +1,124 @@
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--size-4);
+  padding: var(--size-4) var(--size-8);
+  border: 1px solid color-mix(in srgb, var(--color) 20%, transparent);
+  border-radius: var(--radius-8);
+  background-color: transparent;
+  color: color-mix(in srgb, var(--color) 70%, transparent);
+  cursor: pointer;
+  transition: border-color var(--duration-150) ease, color var(--duration-150) ease;
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--color) 40%, transparent);
+    color: var(--color);
+  }
+
+  & > .iconLayout {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    width: var(--size-16);
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    height: var(--size-16);
+  }
+
+  & > .chevronLayout {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    width: var(--size-12);
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    height: var(--size-12);
+  }
+}
+
+.isOpen {
+  border-color: var(--dynamic-color);
+  color: var(--color);
+}
+
+.summary {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-12);
+  white-space: nowrap;
+}
+
+/* The portal root exists so the panel below it has a parent rule to take its
+   width from — a floating element has no layout parent in the markup. */
+.floating {
+  display: flex;
+
+  & > .panel {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    width: var(--size-200);
+  }
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-12);
+  padding: var(--size-12);
+  border: 1px solid color-mix(in srgb, var(--color) 16%, transparent);
+  border-radius: var(--radius-12);
+  background-color: var(--surface-color);
+  color: var(--color);
+  box-shadow: 0 var(--size-4) var(--size-16) rgb(0 0 0 / 0.35);
+}
+
+.panelTitle {
+  color: color-mix(in srgb, var(--color) 55%, transparent);
+}
+
+.componentField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-8);
+}
+
+.fieldHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--size-8);
+  color: color-mix(in srgb, var(--color) 55%, transparent);
+}
+
+.fieldInputGroup {
+  display: flex;
+  align-items: baseline;
+  gap: var(--size-4);
+  padding: 0 var(--size-4);
+  border: 1px solid color-mix(in srgb, var(--color) 20%, transparent);
+  border-radius: var(--radius-4);
+
+  & > .fieldInput {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    width: var(--size-32);
+  }
+}
+
+.fieldInput {
+  border: none;
+  background-color: transparent;
+  color: var(--color);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-12);
+  text-align: right;
+
+  /* The spinners are worse than useless at this width — the slider beside the
+     field is the coarse control. */
+  appearance: textfield;
+
+  &::-webkit-inner-spin-button {
+    appearance: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.fieldUnit {
+  color: color-mix(in srgb, var(--color) 45%, transparent);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-11);
+}

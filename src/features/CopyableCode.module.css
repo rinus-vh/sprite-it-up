@@ -1,0 +1,21 @@
+.component {
+  display: flex;
+  align-items: center;
+  gap: var(--size-8);
+  padding: var(--size-8);
+  border-radius: var(--radius-8);
+  background-color: color-mix(in srgb, var(--color) 8%, transparent);
+
+  & > .copyButtonLayout {
+    /* stylelint-disable-next-line custom/layout-related-properties */
+    flex: 0 0 auto;
+  }
+}
+
+.code {
+  overflow-x: auto;
+  color: var(--color);
+  font-family: var(--font-family-alt);
+  font-size: var(--font-size-12);
+  white-space: pre;
+}

@@ -1,0 +1,9 @@
+.component {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-8);
+}
+
+.hint {
+  color: color-mix(in srgb, var(--color) 55%, transparent);
+}
